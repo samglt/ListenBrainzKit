@@ -1,0 +1,5 @@
+disabled_rules:
+  - trailing_comma
+
+identifier_name:
+  min_length: 2
