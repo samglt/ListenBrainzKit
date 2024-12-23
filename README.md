@@ -5,7 +5,7 @@ ListenBrainzKit is a Swift wrapper around the [ListenBrainz API](https://listenb
 ## Requirements
 - Swift 6
 - iOS 16+
-- MacOS 13+
+- macOS 13+
 - tvOS 16+
 - visionOS 1+
 - watchOS 9+
