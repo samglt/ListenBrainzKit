@@ -8,7 +8,7 @@ struct UserSimilarToRequest: APIRequest {
     init(username: String, other: String) {
         self.data = .init(path: "/1/user/\(username)/similar-to/\(other)",
                           method: .get,
-                          statusErrors: [404: .userNotFound])
+                          statusErrors: [404: .notFound])
     }
 
     struct Result: Decodable {

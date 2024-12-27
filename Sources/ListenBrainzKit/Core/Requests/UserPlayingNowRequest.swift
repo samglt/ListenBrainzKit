@@ -8,7 +8,7 @@ struct UserPlayingNowRequest: APIRequest {
     init(username: String) {
         self.data = .init(path: "/1/user/\(username)/playing-now",
                           method: .get,
-                          statusErrors: [404: .userNotFound])
+                          statusErrors: [404: .notFound])
     }
 
     struct Result: Decodable {

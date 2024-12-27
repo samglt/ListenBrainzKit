@@ -10,7 +10,7 @@ struct UserServicesRequest: APIRequest {
                           method: .get,
                           statusErrors: [401: .invalidAuth,
                                          403: .forbidden,
-                                         404: .userNotFound])
+                                         404: .notFound])
     }
 
     struct Result: Decodable {

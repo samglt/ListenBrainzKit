@@ -15,6 +15,6 @@ struct UserPlaylistsCollaboratorRequest: APIRequest {
         self.data = .init(path: "/1/user/\(username)/playlists/collaborator",
                           method: .get,
                           queryItems: query,
-                          statusErrors: [404: .userNotFound])
+                          statusErrors: [404: .notFound])
     }
 }

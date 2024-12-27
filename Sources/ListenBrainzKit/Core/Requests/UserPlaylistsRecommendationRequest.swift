@@ -10,6 +10,6 @@ struct UserPlaylistsRecommendationRequest: APIRequest {
     init(username: String) {
         self.data = .init(path: "/1/user/\(username)/playlists/recommendations",
                           method: .get,
-                          statusErrors: [404: .userNotFound])
+                          statusErrors: [404: .notFound])
     }
 }
