@@ -55,6 +55,10 @@ try await client.core.submitListens([
 ])
 ```
 
+## Development
+
+Running integration tests requires setting a ListenBrainz token in the environment variable `LISTENBRAINZ_TOKEN"`
+
 ## Supported Endpoints
 
 - Core
