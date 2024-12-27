@@ -140,4 +140,25 @@ public struct LBMetadataClient: Sendable {
             uniquingKeysWith: { lhs, _ in lhs }
         )
     }
+
+    /// Map a recording MessyBrainz ID to a MusicBrainz ID
+    /// - Parameters:
+    ///   - msid: MessyBrainz ID
+    ///   - mbid: MusicBrainz ID
+    /// - Throws: invalidAuth when the token is invalid
+    public func submitManualMapping(msid: UUID, mbid: UUID) async throws {
+        let request = MetadataSubmitMappingRequest(msid: msid, mbid: mbid)
+        _ = try await apiClient.execute(request)
+    }
+
+    /// Get a previously created manual mapping from the given MessyBrainz ID
+    /// - Parameters:
+    ///   - msid: MessyBrainz ID
+    /// - Returns: Mapping from MSID to MBID
+    /// - Throws: notFound when the user has not submitted a manual mapping for the given ID
+    public func getManualMapping(msid: UUID) async throws -> LBManualMapping {
+        let request = MetadataGetMappingRequest(msid: msid)
+
+        return try await apiClient.execute(request)
+    }
 }

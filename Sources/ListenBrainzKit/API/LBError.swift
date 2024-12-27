@@ -13,7 +13,7 @@ public enum LBError: Error {
 
     case noToken
 
-    case userNotFound
+    case notFound
     case forbidden
 
     case invalidResponse
