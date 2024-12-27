@@ -88,8 +88,8 @@ Running integration tests requires setting a ListenBrainz token in the environme
   - [x] GET  /1/metadata/lookup/
   - [x] POST /1/metadata/lookup/
   - [x] GET  /1/metadata/artist/
-  - [ ] POST /1/metadata/submit_manual_mapping/
-  - [ ] GET  /1/metadata/get_manual_mapping/
+  - [x] POST /1/metadata/submit_manual_mapping/
+  - [x] GET  /1/metadata/get_manual_mapping/
 - Statistics
   - [ ] GET  /1/stats/user/(user_name)/artists
   - [ ] GET  /1/stats/user/(user_name)/releases
