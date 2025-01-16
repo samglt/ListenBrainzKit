@@ -7,11 +7,13 @@ import Foundation
 public struct LBClient: Sendable {
     public let core: LBCoreClient
     public let metadata: LBMetadataClient
+    public let recordings: LBRecordingsClient
 
     public init(token: String, customRoot: URL? = nil) {
         let client = ListenBrainzAPIClient(token: token, root: customRoot)
 
         self.core = LBCoreClient(client)
         self.metadata = LBMetadataClient(client)
+        self.recordings = LBRecordingsClient(client)
     }
 }

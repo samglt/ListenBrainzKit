@@ -9,6 +9,7 @@ public struct LBTrackMetadata: Codable, Equatable {
     var track: String
     var release: String?
     var additionalInfo: LBAdditionalInfo?
+    var mbidMapping: MbidMapping?
 
     init(artist: String, track: String,
          release: String? = nil, additionalInfo: LBAdditionalInfo? = nil) {
@@ -16,6 +17,7 @@ public struct LBTrackMetadata: Codable, Equatable {
         self.track = track
         self.release = release
         self.additionalInfo = additionalInfo
+        self.mbidMapping = nil
     }
 
     public init(artist: String, track: String,
@@ -68,5 +70,27 @@ public struct LBTrackMetadata: Codable, Equatable {
         case track = "trackName"
         case release = "releaseName"
         case additionalInfo
+        case mbidMapping
+    }
+
+    public struct MbidMapping: Codable, Equatable {
+        let artistMbids: [UUID]
+        let artists: [MbidMappingArtist]
+        let recordingMbid: UUID
+        let releaseMbid: UUID
+        let caaId: Int?
+        let caaReleaseMbid: UUID?
+    }
+
+    public struct MbidMappingArtist: Codable, Equatable {
+        let name: String
+        let mbid: UUID
+        let joinPhrase: String
+
+        enum CodingKeys: String, CodingKey {
+            case name = "artistCreditName"
+            case mbid = "artistMbid"
+            case joinPhrase
+        }
     }
 }

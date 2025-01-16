@@ -135,8 +135,8 @@ Running integration tests requires setting a ListenBrainz token in the environme
   - [ ] GET  /1/playlist/(service)/(playlist_id)/tracks
   - [ ] POST /1/playlist/export-jspf/(service)
 - Recordings
-  - [ ] POST /1/feedback/recording-feedback
-  - [ ] GET  /1/feedback/user/(user_name)/get-feedback
+  - [x] POST /1/feedback/recording-feedback
+  - [x] GET  /1/feedback/user/(user_name)/get-feedback
   - [ ] GET  /1/feedback/recording/(recording_mbid)/get-feedback-mbid
   - [ ] GET  /1/feedback/recording/(recording_msid)/get-feedback
   - [ ] GET  /1/feedback/user/(user_name)/get-feedback-for-recordings
