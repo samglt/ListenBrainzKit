@@ -137,8 +137,8 @@ Running integration tests requires setting a ListenBrainz token in the environme
 - Recordings
   - [x] POST /1/feedback/recording-feedback
   - [x] GET  /1/feedback/user/(user_name)/get-feedback
-  - [ ] GET  /1/feedback/recording/(recording_mbid)/get-feedback-mbid
-  - [ ] GET  /1/feedback/recording/(recording_msid)/get-feedback
+  - [x] GET  /1/feedback/recording/(recording_mbid)/get-feedback-mbid
+  - [x] GET  /1/feedback/recording/(recording_msid)/get-feedback
   - [ ] GET  /1/feedback/user/(user_name)/get-feedback-for-recordings
   - [ ] POST /1/feedback/user/(user_name)/get-feedback-for-recordings
   - [ ] POST /1/feedback/import
