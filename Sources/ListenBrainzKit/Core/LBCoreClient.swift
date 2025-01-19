@@ -24,9 +24,8 @@ public struct LBCoreClient: Sendable {
 
     /// Submit a single listen
     ///
-    /// > Note: Dates are truncated to Int timestamps, so
-    /// > you cannot rely on a Date equaling a Date that
-    /// > comes from ListenBrainz
+    /// > Note: Dates are truncated to Int timestamps, so you cannot
+    /// > rely on a Date equaling a Date that comes from ListenBrainz
     ///
     /// - Parameters:
     ///   - meta: Metadata of the listened track
@@ -53,9 +52,8 @@ public struct LBCoreClient: Sendable {
 
     /// Submit a batch of listens
     ///
-    /// > Note: Dates are truncated to Int timestamps, so
-    /// > you cannot rely on a Date equaling a Date that
-    /// > comes from ListenBrainz
+    /// > Note: Dates are truncated to Int timestamps, so you cannot
+    /// > rely on a Date equaling a Date that comes from ListenBrainz
     ///
     /// - Parameters:
     ///   - listens: List of listens, with time of listen and track metadata
@@ -69,11 +67,11 @@ public struct LBCoreClient: Sendable {
         _ = try await apiClient.execute(request)
     }
 
-    /// Get listens from the given user, with optional limits on listen date and number of listens
+    /// Get listens from the given user, with optional limits on
+    /// listen date and number of listens
     ///
-    /// > Note: Dates are truncated to Int timestamps, so
-    /// > you cannot rely on a Date equaling a Date that
-    /// > comes from ListenBrainz
+    /// > Note: Dates are truncated to Int timestamps, so you cannot
+    /// > rely on a Date equaling a Date that comes from ListenBrainz
     ///
     /// - Parameters:
     ///   - username: The user to get listens from
@@ -157,9 +155,8 @@ public struct LBCoreClient: Sendable {
 
     /// Delete a listen with the given listen time and ID
     ///
-    /// > Note: Dates are truncated to Int timestamps, so
-    /// > you cannot rely on a Date equaling a Date that
-    /// > comes from ListenBrainz
+    /// > Note: Dates are truncated to Int timestamps, so you cannot
+    /// > rely on a Date equaling a Date that comes from ListenBrainz
     ///
     /// - Parameters:
     ///   - listenedAt:    The time of the listen
@@ -172,9 +169,8 @@ public struct LBCoreClient: Sendable {
 
     /// Delete a given listen
     ///
-    /// > Note: Dates are truncated to Int timestamps, so
-    /// > you cannot rely on a Date equaling a Date that
-    /// > comes from ListenBrainz
+    /// > Note: Dates are truncated to Int timestamps, so you cannot
+    /// > rely on a Date equaling a Date that comes from ListenBrainz
     ///
     /// - Parameters:
     ///   - listen: The LBListen to delete
@@ -263,7 +259,8 @@ public struct LBCoreClient: Sendable {
         return result.services
     }
 
-    /// Get recordings for use in LB radio with the specified tags and in the given popularity range
+    /// Get recordings for use in LB radio with the specified tags and
+    /// in the given popularity range
     /// - Parameters:
     ///   - tags:      List of tags to search for
     ///   - pop:       Popularity range of recordings (0-100)
@@ -285,7 +282,8 @@ public struct LBCoreClient: Sendable {
         return result
     }
 
-    /// Get recordings for use in LB radio with the specified tag and in the given popularity range
+    /// Get recordings for use in LB radio with the specified tag and
+    /// in the given popularity range
     /// - Parameters:
     ///   - tag:      Tag to search for
     ///   - pop:      Popularity range of recordings (0-100)

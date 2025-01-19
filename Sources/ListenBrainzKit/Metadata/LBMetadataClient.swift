@@ -11,7 +11,8 @@ public struct LBMetadataClient: Sendable {
         self.apiClient = client
     }
 
-    /// Get MusicBrainz metadata for the given recording and optional related metadata
+    /// Get MusicBrainz metadata for the given recording and optional
+    /// related metadata
     /// - Parameters:
     ///   - mbid: The MusicBrainz ID of the recording
     ///   - including: Additional metadata to include (tag, artist and/or release)
@@ -31,7 +32,8 @@ public struct LBMetadataClient: Sendable {
         return result.recordings[recordingMbid]
     }
 
-    /// Get MusicBrainz metadata for the given recordings and optional related metadata
+    /// Get MusicBrainz metadata for the given recordings and optional
+    /// related metadata
     /// - Parameters:
     ///   - mbids: Array of MusicBrainz recording IDs
     ///   - including: Additional metadata to include (tag, artist and/or release)
@@ -90,15 +92,17 @@ public struct LBMetadataClient: Sendable {
     }
 
     /// Look up metadata based on the given recording information.
-    /// Matching is fuzzy and will accept spelling/punctuation variations, similar to the /listen/ endpoint
+    /// Matching is fuzzy and will accept spelling/punctuation
+    /// variations, similar to the /listen/ endpoint
     /// - Parameters:
     ///   - artist:    Artist's name
     ///   - recording: Title of the recording/track/song
     ///   - release:   Title of whatever the track was released on, (album, EP, single, etc.)
     ///   - metadata:  Whether to fetch recording metadata
     ///   - including: Related metadata to fetch with recording metadata
-    /// - Returns: Title and MBID for artist(s), recording, and release, if they could be found.
-    ///            Recording metadata included
+    /// - Returns: Title and MBID for artist(s), recording, and
+    ///            release, if they could be found.  Recording
+    ///            metadata included
     public func lookup(
         artist: String, recording: String, release: String?, metadata: Bool = false,
         including: any Sequence<LBMetaInclusion> = []
