@@ -5,7 +5,8 @@
 import Foundation
 
 public struct LBFeedback: Decodable {
-    let created: Date
+    /// When the feedback was given. Not populated by getFeedbackFor()
+    let created: Date?
     let recordingMbid: UUID
     let recordingMsid: UUID?
     /// Love, Hate, or No Score

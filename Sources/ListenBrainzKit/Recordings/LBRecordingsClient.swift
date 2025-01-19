@@ -68,10 +68,10 @@ public struct LBRecordingsClient: Sendable {
 
     /// Get feedback given about a recording by various users
     /// - Parameters:
-    ///   - msid:     MessyBrainz ID of recording to get feedback about
-    ///   - score:    Type of feedback to return, eg. only loved tracks
-    ///   - count:    Number of items to return
-    ///   - offset:   Number of items to skip, for pagination
+    ///   - msid:   MessyBrainz ID of recording to get feedback about
+    ///   - score:  Type of feedback to return, eg. only loved tracks
+    ///   - count:  Number of items to return
+    ///   - offset: Number of items to skip, for pagination
     /// - Returns: List of feedbacks given about the recording
     public func getFeedback(msid: UUID, score: LBScore? = nil,
                             count: Int? = nil, offset: Int? = nil) async throws -> [LBFeedback] {
@@ -79,5 +79,18 @@ public struct LBRecordingsClient: Sendable {
                                                    count: count, offset: offset)
         let res = try await apiClient.execute(request)
         return res.feedback
+    }
+
+    /// Get feedback for the given recordings by the given user
+    /// - Parameters:
+    ///   - mbids: IDs of the recordings to fetch
+    ///   - by:    Feedback made by this user
+    /// - Returns: Map from MBID to feedback
+    public func getFeedbackFor(mbids: [UUID], by user: String) async throws -> [UUID: LBFeedback] {
+        let request = RecordingFeedbackForRequest(mbids: mbids, username: user)
+        let res = try await (apiClient.execute(request)).feedback
+
+        return [UUID: LBFeedback](res.map { ($0.recordingMbid, $0) },
+                                  uniquingKeysWith: { lhs, _ in lhs })
     }
 }
