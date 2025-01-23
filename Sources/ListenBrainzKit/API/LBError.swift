@@ -19,4 +19,6 @@ public enum LBError: Error {
     case invalidResponse
 
     case rateLimited
+
+    case noContent
 }

@@ -8,6 +8,7 @@ public struct LBClient: Sendable {
     public let core: LBCoreClient
     public let metadata: LBMetadataClient
     public let recordings: LBRecordingsClient
+    public let stats: LBStatisticsClient
 
     public init(token: String, customRoot: URL? = nil) {
         let client = ListenBrainzAPIClient(token: token, root: customRoot)
@@ -15,5 +16,6 @@ public struct LBClient: Sendable {
         self.core = LBCoreClient(client)
         self.metadata = LBMetadataClient(client)
         self.recordings = LBRecordingsClient(client)
+        self.stats = LBStatisticsClient(client)
     }
 }
