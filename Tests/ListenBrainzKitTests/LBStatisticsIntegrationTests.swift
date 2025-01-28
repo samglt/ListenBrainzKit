@@ -40,4 +40,25 @@ struct LBStatisticsIntegrationTests {
         #expect(res.totalArtistCount == nil)
         #expect(res.artists.count == 4)
     }
+
+    @Test("Top releases limited and offset")
+    func topReleasesSitewideLimited() async throws {
+        let res = try #require(try await client.stats.topReleasesSitewide(count: 4, offset: 50, range: .month))
+        #expect(res.totalReleaseCount == nil)
+        #expect(res.releases.count == 4)
+    }
+
+    @Test("Top release groups limited and offset")
+    func topReleaseGroupsSitewideLimited() async throws {
+        let res = try #require(try await client.stats.topReleaseGroupsSitewide(count: 4, offset: 50, range: .month))
+        #expect(res.totalReleaseGroupCount == nil)
+        #expect(res.releaseGroups.count == 4)
+    }
+
+    @Test("Top recorings limited and offset")
+    func topRecordingsSitewideLimited() async throws {
+        let res = try #require(try await client.stats.topRecordingsSitewide(count: 4, offset: 50, range: .month))
+        #expect(res.totalRecordingCount == nil)
+        #expect(res.recordings.count == 4)
+    }
 }

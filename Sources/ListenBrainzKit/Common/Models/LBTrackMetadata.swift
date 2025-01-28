@@ -87,6 +87,7 @@ public struct LBTrackMetadata: Codable, Equatable {
         let mbid: UUID
         let joinPhrase: String
 
+        // swiftlint:disable:next nesting
         enum CodingKeys: String, CodingKey {
             case name = "artistCreditName"
             case mbid = "artistMbid"

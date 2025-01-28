@@ -17,6 +17,7 @@ public struct LBTopArtists: Decodable {
         let name: String
         let listenCount: Int
 
+        // swiftlint:disable:next nesting
         enum CodingKeys: String, CodingKey {
             case mbid = "artistMbid"
             case name = "artistName"
