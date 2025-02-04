@@ -39,6 +39,8 @@ struct LBStatisticsIntegrationTests {
         let res = try #require(try await client.stats.topArtistsSitewide(count: 4, offset: 50, range: .month))
         #expect(res.totalArtistCount == nil)
         #expect(res.artists.count == 4)
+        #expect(Date.now.timeIntervalSince(res.from) / (60 * 60 * 24) < 90)
+        #expect(Date.now.timeIntervalSince(res.to) / (60 * 60 * 24) < 30)
     }
 
     @Test("Top releases limited and offset")
@@ -46,6 +48,8 @@ struct LBStatisticsIntegrationTests {
         let res = try #require(try await client.stats.topReleasesSitewide(count: 4, offset: 50, range: .month))
         #expect(res.totalReleaseCount == nil)
         #expect(res.releases.count == 4)
+        #expect(Date.now.timeIntervalSince(res.from) / (60 * 60 * 24) < 90)
+        #expect(Date.now.timeIntervalSince(res.to) / (60 * 60 * 24) < 30)
     }
 
     @Test("Top release groups limited and offset")
@@ -53,6 +57,8 @@ struct LBStatisticsIntegrationTests {
         let res = try #require(try await client.stats.topReleaseGroupsSitewide(count: 4, offset: 50, range: .month))
         #expect(res.totalReleaseGroupCount == nil)
         #expect(res.releaseGroups.count == 4)
+        #expect(Date.now.timeIntervalSince(res.from) / (60 * 60 * 24) < 90)
+        #expect(Date.now.timeIntervalSince(res.to) / (60 * 60 * 24) < 30)
     }
 
     @Test("Top recorings limited and offset")
@@ -60,5 +66,14 @@ struct LBStatisticsIntegrationTests {
         let res = try #require(try await client.stats.topRecordingsSitewide(count: 4, offset: 50, range: .month))
         #expect(res.totalRecordingCount == nil)
         #expect(res.recordings.count == 4)
+        #expect(Date.now.timeIntervalSince(res.from) / (60 * 60 * 24) < 90)
+        #expect(Date.now.timeIntervalSince(res.to) / (60 * 60 * 24) < 30)
+    }
+
+    @Test("Listening activity sitewide")
+    func listeningActivitySitewide() async throws {
+        let res = try #require(try await client.stats.listenActivitySitewide(range: .month))
+        #expect(Date.now.timeIntervalSince(res.from) / (60 * 60 * 24) < 90)
+        #expect(Date.now.timeIntervalSince(res.to) / (60 * 60 * 24) < 30)
     }
 }

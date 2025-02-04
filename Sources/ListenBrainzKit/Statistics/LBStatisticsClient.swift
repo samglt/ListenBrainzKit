@@ -120,6 +120,26 @@ public struct LBStatisticsClient: Sendable {
         return try await (execNoContent(request))?.payload
     }
 
+    /// Get a user's listening activity
+    ///   - user: The user to get listening activity from
+    ///   - range: Timeframe to get stats from. Defaults to allTime
+    /// - Returns: The listening activity for the given user. nil means LB hasn't calculated statistics yet
+    public func listenActivity(user: String,
+                               range: LBStatRange? = nil) async throws -> LBListeningActivity? {
+        let request = StatsActivityRequest(user: user, range: range)
+
+        return try await (execNoContent(request))?.payload
+    }
+
+    /// Get listening activity across the site
+    ///   - range: Timeframe to get stats from. Defaults to allTime
+    /// - Returns: The listening activity across the site. nil means LB hasn't calculated statistics yet
+    public func listenActivitySitewide(range: LBStatRange? = nil) async throws -> LBListeningActivity? {
+        let request = StatsActivityRequest(user: nil, range: range)
+
+        return try await (execNoContent(request))?.payload
+    }
+
     // Get a result which might get a 204: No Content response and treat it as a nil result
     private func execNoContent<T: APIRequest>(_ request: T) async throws -> T.Result? {
         do {

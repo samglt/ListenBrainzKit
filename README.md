@@ -95,7 +95,7 @@ Running integration tests requires setting a ListenBrainz token in the environme
   - [x] GET  /1/stats/user/(user_name)/releases
   - [x] GET  /1/stats/user/(user_name)/release-groups
   - [x] GET  /1/stats/user/(user_name)/recordings
-  - [ ] GET  /1/stats/user/(user_name)/listening-activity
+  - [x] GET  /1/stats/user/(user_name)/listening-activity
   - [ ] GET  /1/stats/user/(user_name)/daily-activity
   - [ ] GET  /1/stats/user/(user_name)/artist-map
   - [ ] GET  /1/stats/artist/(artist_mbid)/listeners
@@ -104,7 +104,7 @@ Running integration tests requires setting a ListenBrainz token in the environme
   - [x] GET  /1/stats/sitewide/releases
   - [x] GET  /1/stats/sitewide/release-groups
   - [x] GET  /1/stats/sitewide/recordings
-  - [ ] GET  /1/stats/sitewide/listening-activity
+  - [x] GET  /1/stats/sitewide/listening-activity
   - [ ] GET  /1/stats/sitewide/artist-map
   - [ ] GET  /1/stats/user/(user_name)/year-in-music/(int: year)
   - [ ] GET  /1/stats/user/(user_name)/year-in-music
