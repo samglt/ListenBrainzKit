@@ -43,7 +43,10 @@ struct ListenBrainzAPIClient: APIClient {
         if let httpResp = resp as? HTTPURLResponse,
            httpResp.statusCode != 200 {
             let code = httpResp.statusCode
-            if code == 429 { throw LBError.rateLimited }
+            if code == 429 {
+                let resetIn = Int(httpResp.allHeaderFields["x-ratelimit-reset-in"] as? String ?? "")
+                throw LBError.rateLimited(resetIn: resetIn ?? 10)
+            }
             throw request.data.statusErrors[httpResp.statusCode] ?? .unknownError
         }
 

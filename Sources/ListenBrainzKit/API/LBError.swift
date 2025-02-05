@@ -2,7 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-public enum LBError: Error {
+public enum LBError: Error, Equatable {
     case unknownError
 
     case invalidJSON
@@ -18,7 +18,8 @@ public enum LBError: Error {
 
     case invalidResponse
 
-    case rateLimited
+    /// resetIn: Number of seconds until limit wears off
+    case rateLimited(resetIn: Int)
 
     case noContent
 }
